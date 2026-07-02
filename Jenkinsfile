@@ -1,23 +1,23 @@
 pipeline {
     agent any
-    triggers {
-        pollSCM('H/5 * * * *')
+
+    environment {
+        LOG_DIR = "${WORKSPACE}/system-monitor"
     }
+
+    triggers {
+        cron('H/15 * * * *')
+    }
+
     stages {
-        stage('Build') {
+        stage('Run Monitoring Script') {
             steps {
-                sh '''
-                    sudo yum install httpd rsync -y
-                    sudo systemctl start httpd
-                    sudo systemctl enable httpd
-                '''
+                sh 'chmod +x scripts/monitor.sh && ./scripts/monitor.sh'
             }
         }
-        stage('Deploy') {
+        stage('Archive Logs') {
             steps {
-                sh '''
-                    sudo rsync -av --delete public/ /var/www/html/
-                '''
+                archiveArtifacts artifacts: 'system-monitor/*.log', fingerprint: true
             }
         }
     }
