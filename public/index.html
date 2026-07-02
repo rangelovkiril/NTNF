@@ -293,20 +293,20 @@ ISSN: 2070-1721                                        A. Kyumurkov, Ed.
   <code>DROP</code> rule would have done in 1998.</p>
 
   <div class="fig">
-    <div class="ascii">        ┌──────────────────────────────────────────────┐
+    <div class="ascii">        ┌───────────────────────────────────────────────┐
         │                 NTNF (New Type)                │  ← you are here
         └───────────────────────┬────────────────────────┘
                                 │  shim
         ┌───────────────────────▼────────────────────────┐
-        │                    nftables                     │  (the "new" one)
+        │                    nftables                    │  (the "new" one)
         └───────────────────────┬────────────────────────┘
                                 │  iptables-nft compat
         ┌───────────────────────▼────────────────────────┐
-        │                    iptables                     │  (the old new one)
+        │                    iptables                    │  (the old new one)
         └───────────────────────┬────────────────────────┘
                                 │  legacy
         ┌───────────────────────▼────────────────────────┐
-        │                    ipchains                     │  (the old old one)
+        │                    ipchains                    │  (the old old one)
         └───────────────────────┬────────────────────────┘
                                 ▼
                           the packet, confused</div>
