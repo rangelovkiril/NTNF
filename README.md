@@ -1,1 +1,1 @@
-![embedding](https://azurediagrams.com/JmcC7hos?embed)
+[![Azure Architecture](preview.png)](https://azurediagrams.com/JmcC7hos)
